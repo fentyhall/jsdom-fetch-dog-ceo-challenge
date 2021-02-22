@@ -1,12 +1,10 @@
-console.log('%c HI', 'color: firebrick');
-
 function fetchDogImages() {
     const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
     fetch(imgUrl)
-    .then(response => response.json())
-    .then(json => {
-        json.message.forEach(img => renderDogImages(img));
-    });
+        .then(response => response.json())
+        .then(json => {
+            json.message.forEach(img => renderDogImages(img));
+        });
 } 
 
 function renderDogImages(dogPic) {
@@ -20,12 +18,12 @@ function renderDogImages(dogPic) {
 function fetchDogBreeds() {
     const breedUrl = 'https://dog.ceo/api/breeds/list/all';
     fetch(breedUrl) 
-    .then(response => response.json()) 
-    .then(json => {
-        breeds = Object.keys(json.message)
-        breeds.forEach(breed => renderDogBreeds(breed));
-        updateBreedLists();
-    })
+        .then(response => response.json()) 
+        .then(json => {
+            breeds = Object.keys(json.message);
+            breeds.forEach(breed => renderDogBreeds(breed));
+            updateBreedLists();
+        })
 }
 
 function updateBreedLists() {
